@@ -11,6 +11,7 @@ interface CartPanelProps {
   onDecrement: (productId: string) => void;
   onRemove: (productId: string) => void;
   onClear: () => void;
+  onSaveSuccess: () => void;
 }
 
 export const CartPanel = ({
@@ -21,6 +22,7 @@ export const CartPanel = ({
   onDecrement,
   onRemove,
   onClear,
+  onSaveSuccess
 }: CartPanelProps) => {
   const productMap = new Map(
     products.map((product) => [product.id, product])
@@ -83,7 +85,7 @@ export const CartPanel = ({
       </div>
 
       <div className="mt-4">
-        <SummaryCard bill={bill} />
+        <SummaryCard bill={bill} items={items} onSaveSuccess={onSaveSuccess}/>
       </div>
     </aside>
   );

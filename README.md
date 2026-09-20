@@ -22,7 +22,6 @@ A simple React + TypeScript billing application that allows users to select prod
 * TypeScript
 * Redux Toolkit
 * Vite
-* Bootstrap
 * Tailwind CSS
 * Vitest
 * Firebase Hosting

@@ -51,6 +51,7 @@ function App() {
             onDecrement={(productId) => dispatch(decrementQuantity(productId))}
             onRemove={(productId) => dispatch(removeFromCart(productId))}
             onClear={() => dispatch(clearCart())}
+            onSaveSuccess={() => dispatch(clearCart())}
           />
         </div>
       </div>

@@ -12,6 +12,7 @@ interface CartPanelProps {
   onRemove: (productId: string) => void;
   onClear: () => void;
   onSaveSuccess: () => void;
+  isDiasble: boolean;
 }
 
 export const CartPanel = ({
@@ -22,7 +23,8 @@ export const CartPanel = ({
   onDecrement,
   onRemove,
   onClear,
-  onSaveSuccess
+  onSaveSuccess,
+  isDiasble
 }: CartPanelProps) => {
   const productMap = new Map(
     products.map((product) => [product.id, product])
@@ -77,6 +79,7 @@ export const CartPanel = ({
                   onIncrement={() => onIncrement(item.productId)}
                   onDecrement={() => onDecrement(item.productId)}
                   onRemove={() => onRemove(item.productId)}
+                  isDiasble={isDiasble}
                 />
               );
             })}
@@ -85,7 +88,7 @@ export const CartPanel = ({
       </div>
 
       <div className="mt-4">
-        <SummaryCard bill={bill} items={items} onSaveSuccess={onSaveSuccess}/>
+        <SummaryCard bill={bill} items={items} onSaveSuccess={onSaveSuccess} isDiasble={isDiasble}/>
       </div>
     </aside>
   );

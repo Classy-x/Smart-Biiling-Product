@@ -114,7 +114,8 @@ export const calculateBill = (
   const productMap = new Map(
     productList.map((product) => [product.id, product]),
   );
-
+  console.log(productMap,"productMap",cartItems,"cartItems");
+  
   // Calculate subtotal before offers
   const subtotalPaise = cartItems.reduce((subtotal, item) => {
     const product = productMap.get(item.productId);
@@ -141,6 +142,8 @@ export const calculateBill = (
       product,
       item.quantity,
     );
+    console.log(appliedOffer,"appliedOffer");
+    
 
     if (appliedOffer) {
       appliedOffers.push(appliedOffer);

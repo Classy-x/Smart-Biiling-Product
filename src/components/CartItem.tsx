@@ -6,6 +6,7 @@ interface CartItemProps {
   onIncrement: () => void;
   onDecrement: () => void;
   onRemove: () => void;
+  isDiasble: boolean;
 }
 
 export const CartItem = ({
@@ -14,6 +15,7 @@ export const CartItem = ({
   onIncrement,
   onDecrement,
   onRemove,
+  isDiasble,
 }: CartItemProps) => (
   <div className="flex gap-3 border-b py-3 last:border-0">
     <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-gray-100 text-lg">
@@ -41,6 +43,8 @@ export const CartItem = ({
             onClick={onDecrement}
             aria-label={`Decrease ${product.name} quantity`}
             className="px-2 py-1 hover:bg-gray-100"
+            //decreament no need to disabled
+            // disabled={isDiasble ? `disabled`:""}
           >
             −
           </button>
@@ -51,6 +55,7 @@ export const CartItem = ({
 
           <button
             type="button"
+            disabled={isDiasble}
             onClick={onIncrement}
             aria-label={`Increase ${product.name} quantity`}
             className="px-2 py-1 hover:bg-gray-100"

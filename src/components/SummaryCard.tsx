@@ -7,12 +7,14 @@ interface SummaryCardProps {
   bill: Bill;
   items: CartItem[];
   onSaveSuccess: () => void;
+  isDiasble: boolean
 }
 
 export const SummaryCard = ({
   bill,
   items,
-  onSaveSuccess
+  onSaveSuccess,
+  isDiasble,
 }: SummaryCardProps) => {
   const [isSaving, setIsSaving] = useState(false);
 
@@ -75,7 +77,7 @@ export const SummaryCard = ({
         <button
           type="button"
           onClick={handleSaveBill}
-          disabled={items.length === 0 || isSaving}
+          disabled={items.length === 0 || isSaving || isDiasble}
           className="mt-4 w-full rounded-md bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSaving ? 'Saving...' : 'Save Bill'}
